@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mybusybox
+  labels:
+    app: mybusybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mybusybox
+  template:
+    metadata:
+      labels:
+        app: mybusybox
+    spec:
+      containers:
+      - name: mybusybox
+        image: alexkrieg.com/mybusybox
+        imagePullPolicy: Never
+        command: ['sh', '-c', 'sleep 3600']
+        volumeMounts:
+          - name: mymount
+            mountPath: /host
+      volumes:
+        - name: mymount
+          hostPath:
+            path: /data
