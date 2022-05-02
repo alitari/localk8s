@@ -17,9 +17,7 @@ kubectl-ctx minikube
 kubectl get nodes
 ```
 
-## some checks
-
-### servicetype nodeport
+## servicetype nodeport
 
 ```sh
 kubectl-ns default
@@ -28,14 +26,7 @@ kubectl expose deployment hello-minikube --type=NodePort --port=8080
 kubectl port-forward service/hello-minikube 7080:8080
 # browse to http://localhost:7080
 ```
-### dashboard
-
-```sh
-minikube dashboard
-```
-
-
-### servicetype loadbalancer
+## servicetype loadbalancer
 
 ```sh
 kubectl-ns default
@@ -46,6 +37,12 @@ minikube tunnel
 export EXT_IP=$(kubectl get svc balanced -o=json | jq -r ".status.loadBalancer.ingress[0].ip")
 http http://${EXT_IP}:8080
 # browse to http://localhost:7080
+```
+
+## dashboard
+
+```sh
+minikube dashboard
 ```
 
 ## mgnmt
@@ -77,18 +74,28 @@ export KONG_IP=$(kubectl get svc kong-proxy -o=json | jq -r ".status.loadBalance
 http http://kong.${KONG_IP}.nip.io
 ```
 
-## registries
-
-### without registry
+## load images without registry
 
 load images directly in cluster
 
 ```sh
-docker pull busybox 
+docker pull busybox
 docker tag busybox alexkrieg.com/mybusybox
 minikube image load alexkrieg.com/mybusybox
 kubectl-ns default
-kubectl apply -f busybox-deploy.yaml
+kubectl apply -f mybusybox.yaml
+
 ```
+
+## mounting local file system
+
+```sh
+minikube mount $PWD/hostvolume:/data
+kubectl apply -f busybox-hostpath.yaml
+```
+
+
+
+
 
 
