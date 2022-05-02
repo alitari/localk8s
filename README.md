@@ -1,11 +1,12 @@
 # Kubernetes on local workstations
 
-| Product | platforms | remarks |
-| ------- | -------- | ------- |
-| [minikube](./minikube/README.md)| docker, vm, baremetal| de facto standard |
-| [kind](./kind/README.md):| docker | Kubernetes in Docker |
-| [microk8s](./microk8s/README.md)| bare-metal | not only local |
-| [k0s](./k0s/README.md):| bare-metal,cloud| not only local |
-| [k3d](./k3d/README.md)| | |
+| Product | platforms |
+| ------- | -------- |
+| [minikube](./minikube/README.md)| docker, vm, baremetal|
+| [kind](./kind/README.md)| docker |
+| [microk8s](./microk8s/README.md)| bare-metal |
+| [k3s](./k3s/README.md)| bare-metal, edge |
+| [k3d](./k3d/README.md)| docker |
+| [k0s](./k0s/README.md)| bare-metal,cloud|
 
-[![Star History Chart](https://api.star-history.com/svg?repos=kubernetes-sigs/kind,k0sproject/k0s,kubernetes/minikube,canonical/microk8s,k3d-io/k3d&type=Date)](https://star-history.com/#kubernetes-sigs/kind&k0sproject/k0s&kubernetes/minikube&canonical/microk8s&k3d-io/k3d&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=kubernetes-sigs/kind,k0sproject/k0s,kubernetes/minikube,canonical/microk8s,k3s-io/k3s,k3d-io/k3d&type=Date)](https://star-history.com/#kubernetes-sigs/kind&k0sproject/k0s&kubernetes/minikube&canonical/microk8s&k3s-io/k3s&k3d-io/k3d&Date)
